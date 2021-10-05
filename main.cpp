@@ -1,67 +1,33 @@
 #include "Array.h"
-#include <cstdlib>
-#include<iostream>
+#include "RangeArray.h"
+#include <iostream>
 using namespace std;
 
-Array::Array(int size)
+int main(void)
 {
-    //사이즈를 확인하고 양수이면 new를 사용하여 배열 data를 할당, len값 초기화
-    if(size<0)
-    {
-        cout<<"size error";
-        exit 1;
-    }
-    else
-    {
-        for (int i=0; i<size ; i++){
-            Array[i]=0;
-        }
-    }
-}
-Array::~Array()
-{
-    // 소멸자; 할당된 메모리 해제
+    int i,x,y;
+    Array a(10),b(5);
+    for(i=0;i<a.length();i++)
+        a[i] = i+1;
+    for(i=0;i<b.length();i++)
+        b[i] = i*2;
+    cout<<"a(10) ";a.print();
+    cout<<"b(5) ";b.print();
+    cout<<"a[-1] ";a[-1] = 7;
+    x = a[0]; y = b[0];
+    cout<<"a[0] ="<<x<<endl<<"b[0] ="<<y<<endl;
 
-}
-int Array::length() const
-{
-    // 배열의 크기 리턴
-}
+    RangeArray c(-1,3),d(3,7);
 
-// 배열에 원소를 대입하거나 값을 반환하는 부분으로 []연산자의 오버로딩이다
-int& Array::operator[](int i) // 배열에 원소 삽입
-{
-    static int tmp;
+    for(i=c.baseValue();i<=c.endValue();i++) c[i] = i*3;
+    for(i=d.baseValue();i<=d.endValue();i++) d[i] = i*4;
 
-    // 배열의 인덱스가 범위 내에 있으면 값 리턴, 그렇지 않으면 에러메세지 출력하고 tmp리턴
-    if(i >= 0 && i < len)
-    {
+    cout<<"c(-1,3) ";c.print();
+    cout<<"d(3,7) ";d.print();
+    cout<<"c[-2] ";c[-2] = 3;
+    x = c[-1];
+    y = d[3];
 
-    }
-    else
-    {
-
-    }
+    cout<<"c[-1] = "<<x<<" d[3] = "<<y<<endl;
 }
 
-int Array::operator[](int i) const // 배열의 원소값 반환
-{
-    //배열의 인덱스가 범위 내에 잇으면 값을 리턴, 그렇지 않으면 에러메세지 출력하고 0을 리턴
-    if(i >= 0 && i<len)
-    {
-
-    }
-    else
-    {
-
-    }
-}
-void Array::print() //배열의 모든 내용을 출력해주는 함수
-{
-    int i;
-    cout<<"[";
-    for()
-
-        
-    cout<<endl;
-}
