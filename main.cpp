@@ -5,6 +5,7 @@ using namespace std;
 
 int main(void)
 {
+
     int i,x,y;
     Array a(10),b(5);
     for(i=0;i<a.length();i++)
@@ -29,5 +30,6 @@ int main(void)
     y = d[3];
 
     cout<<"c[-1] = "<<x<<" d[3] = "<<y<<endl;
+    cout <<"test3";
 }
 
